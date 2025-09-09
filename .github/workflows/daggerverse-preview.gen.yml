@@ -47,6 +47,7 @@ jobs:
                 curl -fsS https://dl.dagger.io/dagger/install.sh | BIN_DIR=${prefix_dir}/bin DAGGER_VERSION=$DAGGER_VERSION sh
               env:
                 DAGGER_VERSION: v0.18.16
+                GH_TOKEN: ${{ github.token }}
               shell: bash
             - name: scripts/warm-engine.sh
               id: warm-engine
@@ -171,5 +172,6 @@ jobs:
                 DAGGER_CLOUD_TOKEN: dag_dagger_sBIv6DsjNerWvTqt2bSFeigBUqWxp9bhh3ONSSgeFnw
                 DAGGER_MODULE: modules/daggerverse
                 RELEASE_DAGGER_CI_TOKEN: ${{ secrets.RELEASE_DAGGER_CI_TOKEN }}
+                GH_TOKEN: ${{ github.token }}
               shell: bash
         timeout-minutes: 20
