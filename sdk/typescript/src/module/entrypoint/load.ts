@@ -147,7 +147,7 @@ export async function loadValue(
   value: any,
   type: TypeDef<TypeDefKind>,
 ): Promise<any> {
-  // If value is undefinied, return it directly.
+  // If value is undefined, return it directly.
   if (value === undefined) {
     return value
   }
@@ -203,7 +203,7 @@ export async function loadValue(
 
 /**
  * Load the object type from the return type of the method.
- * This covers the case where the return type is an other object of the module.
+ * This covers the case where the return type is another object of the module.
  * For example: `msg(): Message` where message is an object of the module.
  *
  * @param module  The module to load the object from.
@@ -308,7 +308,7 @@ export async function loadResult(
             module.objects[(_property as TypeDef<TypeDefKind.ObjectKind>).name]
         }
 
-        // If the original type is a enum, we use it as the referenced object.
+        // If the original type is an enum, we use it as the referenced object.
         if (_property.kind === TypeDefKind.EnumKind) {
           referencedObject =
             module.enums[(_property as TypeDef<TypeDefKind.EnumKind>).name]

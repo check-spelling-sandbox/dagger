@@ -34,7 +34,7 @@ func fastModuleSourceKindCheck(
 	case strings.HasPrefix(refString, SchemeSSH.Prefix()):
 		return ModuleSourceKindGit
 	case !strings.Contains(refString, "."):
-		// technically host names can not have any dot, but we can save a lot of work
+		// technically host names cannot have any dot, but we can save a lot of work
 		// by assuming a dot-free ref string is a local path. Users can prefix
 		// args with a scheme:// to disambiguate these obscure corner cases.
 		return ModuleSourceKindLocal
@@ -99,7 +99,7 @@ func ParseRefString(
 			Git:  &parsedGitRef,
 		}, nil
 	case errors.As(err, &gitEndpointError{}):
-		// couldn't connect to git endpoint, fallback to local
+		// couldn't connect to git endpoint, fall back to local
 		return &ParsedRefString{
 			Kind: ModuleSourceKindLocal,
 			Local: &ParsedLocalRefString{

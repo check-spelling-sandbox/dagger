@@ -40,10 +40,10 @@ export class Executor {
       case "class": {
         const obj = this.getExportedObject(object)
 
-        const instanciatedClass = Object.create(obj.prototype)
-        Object.assign(instanciatedClass, state)
+        const instantiatedClass = Object.create(obj.prototype)
+        Object.assign(instantiatedClass, state)
 
-        return instanciatedClass
+        return instantiatedClass
       }
       case "object": {
         return state
@@ -114,7 +114,7 @@ export class Executor {
 }
 
 /**
- * Interface Wrapper serves as dynaminc module binding so the module can
+ * Interface Wrapper serves as dynamic module binding so the module can
  * call function of this interface.
  * Because the actual interface implementation can come from any external modules,
  * all resolution are done by API Call.
@@ -226,7 +226,7 @@ class InterfaceWrapper {
   }
 
   /**
-   * ID function to make the interface IDeable when serialized as return value to the
+   * ID function to make the interface IDable when serialized as return value to the
    * Dagger API.
    */
   public async id(): Promise<string> {

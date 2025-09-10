@@ -15,7 +15,7 @@ import (
 
 /* TODO:Open questions
 * Alpine has both /etc/ssl/ and /etc/ssl1.1 dirs...
-* LibreSSL does it's own thing? https://wiki.archlinux.org/title/Transport_Layer_Security
+* LibreSSL does its own thing? https://wiki.archlinux.org/title/Transport_Layer_Security
 * GNUTLS too; uses pkcs11 stuff (can other things be custom compiled to use that?)
 * More variations here: https://go.dev/src/crypto/x509/root_linux.go
 
@@ -407,7 +407,7 @@ func (d *commonInstaller) Uninstall(ctx context.Context) error {
 		}
 	}
 
-	// update the bundle using the command if available, otherwise manually remove the certs
+	// update the bundle using the command if available; otherwise, manually remove the certs
 	if updateCommandExists {
 		if err := d.ctrFS.Exec(ctx, d.updateCmd...); err != nil {
 			return fmt.Errorf("failed to run %v for install: %w", d.updateCmd, err)

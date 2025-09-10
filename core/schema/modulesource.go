@@ -277,7 +277,7 @@ func (s *moduleSourceSchema) localModuleSource(
 	query dagql.ObjectResult[*core.Query],
 	bk *buildkit.Client,
 
-	// localPath is the path the user provided to load the module, it may be relative or absolute and
+	// localPath is the path that the user provided to load the module, it may be relative or absolute and
 	// may point to either the directory containing dagger.json or any subdirectory in the
 	// filetree under the directory containing dagger.json.
 	// When findUp is enabled, it can also be a name of a dependency in the default dagger.json found-up from the cwd.
@@ -559,7 +559,7 @@ func (s *moduleSourceSchema) gitModuleSource(
 	if !doFindUp {
 		configPath = filepath.Join(gitSrc.SourceRootSubpath, modules.Filename)
 	} else {
-		// first validate the given path exists at all, otherwise weird things like
+		// first validate the given path exists at all; otherwise, weird things like
 		// `dagger -m github.com/dagger/dagger/not/a/real/dir` can succeed because
 		// they find-up to a real dagger.json
 		statFS := core.NewCoreDirStatFS(gitSrc.ContextDirectory.Self(), bk)
@@ -1366,7 +1366,7 @@ func (s *moduleSourceSchema) moduleSourceWithDependencies(
 		}
 	}
 
-	// append the pre-existing deps to the slice too; they need to come later so we prefer new ones over existing ones below
+	// append the preexisting deps to the slice too; they need to come later so we prefer new ones over existing ones below
 	allDeps = append(allDeps, parentSrc.Dependencies...)
 
 	// deduplicate equivalent deps at differing versions, preferring the new dep over the existing one
@@ -1560,7 +1560,7 @@ func (s *moduleSourceSchema) moduleSourceWithUpdateDependencies(
 			continue
 		}
 
-		// if the existingDep is local and requested to be updated, return error, otherwise skip it
+		// if the existingDep is local and requested to be updated, return error; otherwise, skip it
 		if existingDep.Self().Kind == core.ModuleSourceKindLocal {
 			for updateReq := range updateReqs {
 				if updateReq.symbolic == existingDep.Self().ModuleName {
@@ -1865,7 +1865,7 @@ func (s *moduleSourceSchema) loadModuleSourceConfig(
 				// parent=dir, dep=dir
 				// This is a bit subtle, but we can assume that any dependencies of kind dir were sourced from the same
 				// context directory as the parent. This is because module sources of type dir only load dependencies
-				// from a pre-existing dagger.json; they cannot *currently* have more deps added via the withDependencies
+				// from a preexisting dagger.json; they cannot *currently* have more deps added via the withDependencies
 				// API.
 				parentSrcRoot := filepath.Join("/", src.SourceRootSubpath)
 				depSrcRoot := filepath.Join("/", depSrc.Self().SourceRootSubpath)

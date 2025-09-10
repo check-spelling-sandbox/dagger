@@ -570,7 +570,7 @@ func (srv *Server) initializeDaggerClient(
 		return fmt.Errorf("failed to create buildkit client: %w", err)
 	}
 
-	// setup the graphql server + module/function state for the client
+	// set up the graphql server + module/function state for the client
 	client.dagqlRoot = core.NewRoot(srv)
 	// make query available via context to all APIs
 	ctx = core.ContextWithQuery(ctx, client.dagqlRoot)
@@ -612,7 +612,7 @@ func (srv *Server) initializeDaggerClient(
 		// client.mod = modInst.Self
 
 		client.deps = core.NewModDeps(client.dagqlRoot, client.mod.Deps.Mods)
-		// if the module has any of it's own objects defined, serve its schema to itself too
+		// if the module has any of its own objects defined, serve its schema to itself too
 		if len(client.mod.ObjectDefs) > 0 {
 			client.deps = client.deps.Append(client.mod)
 		}
@@ -1069,7 +1069,7 @@ func (srv *Server) serveSessionAttachables(w http.ResponseWriter, r *http.Reques
 func (srv *Server) serveQuery(w http.ResponseWriter, r *http.Request, client *daggerClient) (rerr error) {
 	ctx := r.Context()
 
-	// only record telemetry if the request is traced, otherwise
+	// only record telemetry if the request is traced; otherwise,
 	// we end up with orphaned spans in their own separate traces from tests etc.
 	if trace.SpanContextFromContext(ctx).IsValid() {
 		// create a span to record telemetry into the client's DB

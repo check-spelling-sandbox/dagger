@@ -537,8 +537,8 @@ func (k procKiller) Kill(ctx context.Context) (err error) {
 		return k.runC.Kill(ctx, k.id, int(syscall.SIGKILL), nil)
 	}
 
-	// `runc exec` will write the pidfile a few milliseconds after we
-	// get the runc pid via the startedCh, so we might need to retry until
+	// a few milliseconds after we get the runc pid via the startedCh,
+	// `runc exec` will write the pidfile, so we might need to retry until
 	// it appears in the edge case where we want to kill a process
 	// immediately after it was created.
 	var pidData []byte
@@ -578,7 +578,7 @@ type procHandle struct {
 	ready          chan struct{}
 	ended          chan struct{}
 	shutdown       func(error)
-	// this this only used when the request context is canceled and we need
+	// this is only used when the request context is canceled and we need
 	// to kill the in-container process.
 	killer procKiller
 }

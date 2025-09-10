@@ -92,7 +92,7 @@ func (funcs typescriptTemplateFuncs) solve(field introspection.Field) bool {
 	return field.TypeRef.IsScalar() || field.TypeRef.IsList()
 }
 
-// subtract subtract integer a with integer b.
+// subtract integer b from integer a.
 func (funcs typescriptTemplateFuncs) subtract(a, b int) int {
 	return a - b
 }
@@ -189,7 +189,7 @@ var jsKeywords = map[string]struct{}{
 	"do":       {},
 	"else":     {},
 	"enum":     {},
-	// "export":     {}, // containr.export
+	// "export":     {}, // container.export
 	"extends":    {},
 	"false":      {},
 	"finally":    {},

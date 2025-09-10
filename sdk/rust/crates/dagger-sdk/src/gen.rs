@@ -1973,7 +1973,7 @@ pub struct ContainerAsServiceOpts<'a> {
     #[builder(setter(into, strip_option), default)]
     pub insecure_root_capabilities: Option<bool>,
     /// If set, skip the automatic init process injected into containers by default.
-    /// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+    /// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
     #[builder(setter(into, strip_option), default)]
     pub no_init: Option<bool>,
     /// If the container has an entrypoint, prepend it to the args.
@@ -2004,7 +2004,7 @@ pub struct ContainerBuildOpts<'a> {
     #[builder(setter(into, strip_option), default)]
     pub dockerfile: Option<&'a str>,
     /// If set, skip the automatic init process injected into containers created by RUN statements.
-    /// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+    /// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
     #[builder(setter(into, strip_option), default)]
     pub no_init: Option<bool>,
     /// Secrets to pass to the build.
@@ -2119,7 +2119,7 @@ pub struct ContainerUpOpts<'a> {
     #[builder(setter(into, strip_option), default)]
     pub insecure_root_capabilities: Option<bool>,
     /// If set, skip the automatic init process injected into containers by default.
-    /// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+    /// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
     #[builder(setter(into, strip_option), default)]
     pub no_init: Option<bool>,
     /// List of frontend/backend port mappings to forward.
@@ -2187,7 +2187,7 @@ pub struct ContainerWithExecOpts<'a> {
     #[builder(setter(into, strip_option), default)]
     pub insecure_root_capabilities: Option<bool>,
     /// Skip the automatic init process injected into containers by default.
-    /// Only use this if you specifically need the command to be pid 1 in the container. Otherwise it may result in unexpected behavior. If you're not sure, you don't need this.
+    /// Only use this if you specifically need the command to be pid 1 in the container. Otherwise, it may result in unexpected behavior. If you're not sure, you don't need this.
     #[builder(setter(into, strip_option), default)]
     pub no_init: Option<bool>,
     /// Redirect the command's standard error to a file in the container. Example: "./stderr.txt"
@@ -3064,7 +3064,7 @@ impl Container {
         let query = self.selection.select("user");
         query.execute(self.graphql_client.clone()).await
     }
-    /// Retrieves this container plus the given OCI anotation.
+    /// Retrieves this container plus the given OCI annotation.
     ///
     /// # Arguments
     ///
@@ -4336,7 +4336,7 @@ impl Container {
             graphql_client: self.graphql_client.clone(),
         }
     }
-    /// Return a new container spanshot with specified files removed
+    /// Return a new container snapshot with specified files removed
     ///
     /// # Arguments
     ///
@@ -4354,7 +4354,7 @@ impl Container {
             graphql_client: self.graphql_client.clone(),
         }
     }
-    /// Return a new container spanshot with specified files removed
+    /// Return a new container snapshot with specified files removed
     ///
     /// # Arguments
     ///
@@ -4642,7 +4642,7 @@ pub struct DirectoryDockerBuildOpts<'a> {
     #[builder(setter(into, strip_option), default)]
     pub dockerfile: Option<&'a str>,
     /// If set, skip the automatic init process injected into containers created by RUN statements.
-    /// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+    /// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
     #[builder(setter(into, strip_option), default)]
     pub no_init: Option<bool>,
     /// The platform to build.
@@ -4712,7 +4712,7 @@ pub struct DirectorySearchOpts<'a> {
     /// Directory or file paths to search
     #[builder(setter(into, strip_option), default)]
     pub paths: Option<Vec<&'a str>>,
-    /// Skip hidden files (files starting with .).
+    /// Skip hidden files (files starting with `.`).
     #[builder(setter(into, strip_option), default)]
     pub skip_hidden: Option<bool>,
     /// Honor .gitignore, .ignore, and .rgignore files.
@@ -4874,7 +4874,7 @@ impl Directory {
             graphql_client: self.graphql_client.clone(),
         }
     }
-    /// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.
+    /// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.
     ///
     /// # Arguments
     ///
@@ -4887,7 +4887,7 @@ impl Directory {
             graphql_client: self.graphql_client.clone(),
         }
     }
-    /// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.
+    /// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.
     ///
     /// # Arguments
     ///
@@ -5049,7 +5049,7 @@ impl Directory {
             graphql_client: self.graphql_client.clone(),
         }
     }
-    /// Returns a list of files and directories that matche the given pattern.
+    /// Returns a list of files and directories that match the given pattern.
     ///
     /// # Arguments
     ///
@@ -5548,7 +5548,7 @@ pub struct EngineCacheEntrySetOpts<'a> {
 }
 #[derive(Builder, Debug, PartialEq)]
 pub struct EngineCachePruneOpts {
-    /// Use the engine-wide default pruning policy if true, otherwise prune the whole cache of any releasable entries.
+    /// Use the engine-wide default pruning policy if true; otherwise, prune the whole cache of any releasable entries.
     #[builder(setter(into, strip_option), default)]
     pub use_default_policy: Option<bool>,
 }
@@ -6940,7 +6940,7 @@ pub struct FileSearchOpts<'a> {
     pub multiline: Option<bool>,
     #[builder(setter(into, strip_option), default)]
     pub paths: Option<Vec<&'a str>>,
-    /// Skip hidden files (files starting with .).
+    /// Skip hidden files (files starting with `.`).
     #[builder(setter(into, strip_option), default)]
     pub skip_hidden: Option<bool>,
     /// Honor .gitignore, .ignore, and .rgignore files.
@@ -9415,7 +9415,7 @@ pub struct QueryModuleSourceOpts<'a> {
 #[derive(Builder, Debug, PartialEq)]
 pub struct QuerySecretOpts<'a> {
     /// If set, the given string will be used as the cache key for this secret. This means that any secrets with the same cache key will be considered equivalent in terms of cache lookups, even if they have different URIs or plaintext values.
-    /// For example, two secrets with the same cache key provided as secret env vars to other wise equivalent containers will result in the container withExecs hitting the cache for each other.
+    /// For example, two secrets with the same cache key provided as secret env vars to otherwise equivalent containers will result in the container withExecs hitting the cache for each other.
     /// If not set, the cache key for the secret will be derived from its plaintext value as looked up when the secret is constructed.
     #[builder(setter(into, strip_option), default)]
     pub cache_key: Option<&'a str>,

@@ -56,7 +56,7 @@ export enum CacheSharingMode {
 
 /**
  * Utility function to convert a CacheSharingMode value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function CacheSharingModeValueToName(value: CacheSharingMode): string {
   switch (value) {
@@ -128,7 +128,7 @@ export type ContainerAsServiceOpts = {
   /**
    * If set, skip the automatic init process injected into containers by default.
    *
-   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   noInit?: boolean
 }
@@ -184,7 +184,7 @@ export type ContainerBuildOpts = {
   /**
    * If set, skip the automatic init process injected into containers created by RUN statements.
    *
-   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   noInit?: boolean
 }
@@ -356,7 +356,7 @@ export type ContainerUpOpts = {
   /**
    * If set, skip the automatic init process injected into containers by default.
    *
-   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   noInit?: boolean
 }
@@ -464,7 +464,7 @@ export type ContainerWithExecOpts = {
   /**
    * Skip the automatic init process injected into containers by default.
    *
-   * Only use this if you specifically need the command to be pid 1 in the container. Otherwise it may result in unexpected behavior. If you're not sure, you don't need this.
+   * Only use this if you specifically need the command to be pid 1 in the container. Otherwise, it may result in unexpected behavior. If you're not sure, you don't need this.
    */
   noInit?: boolean
 }
@@ -794,7 +794,7 @@ export type DirectoryDockerBuildOpts = {
   /**
    * If set, skip the automatic init process injected into containers created by RUN statements.
    *
-   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   noInit?: boolean
 }
@@ -879,7 +879,7 @@ export type DirectorySearchOpts = {
   skipIgnored?: boolean
 
   /**
-   * Skip hidden files (files starting with .).
+   * Skip hidden files (files starting with `.`).
    */
   skipHidden?: boolean
 
@@ -967,7 +967,7 @@ export type EngineCacheEntrySetOpts = {
 
 export type EngineCachePruneOpts = {
   /**
-   * Use the engine-wide default pruning policy if true, otherwise prune the whole cache of any releasable entries.
+   * Use the engine-wide default pruning policy if true; otherwise, prune the whole cache of any releasable entries.
    */
   useDefaultPolicy?: boolean
 }
@@ -1044,7 +1044,7 @@ export enum ExistsType {
 
 /**
  * Utility function to convert a ExistsType value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function ExistsTypeValueToName(value: ExistsType): string {
   switch (value) {
@@ -1133,7 +1133,7 @@ export type FileSearchOpts = {
   skipIgnored?: boolean
 
   /**
-   * Skip hidden files (files starting with .).
+   * Skip hidden files (files starting with `.`).
    */
   skipHidden?: boolean
 
@@ -1331,7 +1331,7 @@ export enum ImageLayerCompression {
 
 /**
  * Utility function to convert a ImageLayerCompression value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function ImageLayerCompressionValueToName(
   value: ImageLayerCompression,
@@ -1380,7 +1380,7 @@ export enum ImageMediaTypes {
 
 /**
  * Utility function to convert a ImageMediaTypes value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function ImageMediaTypesValueToName(value: ImageMediaTypes): string {
   switch (value) {
@@ -1495,7 +1495,7 @@ export enum ModuleSourceKind {
 
 /**
  * Utility function to convert a ModuleSourceKind value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function ModuleSourceKindValueToName(value: ModuleSourceKind): string {
   switch (value) {
@@ -1536,7 +1536,7 @@ export enum NetworkProtocol {
 
 /**
  * Utility function to convert a NetworkProtocol value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function NetworkProtocolValueToName(value: NetworkProtocol): string {
   switch (value) {
@@ -1732,7 +1732,7 @@ export type ClientSecretOpts = {
   /**
    * If set, the given string will be used as the cache key for this secret. This means that any secrets with the same cache key will be considered equivalent in terms of cache lookups, even if they have different URIs or plaintext values.
    *
-   * For example, two secrets with the same cache key provided as secret env vars to other wise equivalent containers will result in the container withExecs hitting the cache for each other.
+   * For example, two secrets with the same cache key provided as secret env vars to otherwise equivalent containers will result in the container withExecs hitting the cache for each other.
    *
    * If not set, the cache key for the secret will be derived from its plaintext value as looked up when the secret is constructed.
    */
@@ -1761,7 +1761,7 @@ export enum ReturnType {
 
 /**
  * Utility function to convert a ReturnType value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function ReturnTypeValueToName(value: ReturnType): string {
   switch (value) {
@@ -2083,7 +2083,7 @@ export enum TypeDefKind {
 
 /**
  * Utility function to convert a TypeDefKind value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function TypeDefKindValueToName(value: TypeDefKind): string {
   switch (value) {
@@ -2611,7 +2611,7 @@ export class Container extends BaseClient {
    * @param opts.expand Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").
    * @param opts.noInit If set, skip the automatic init process injected into containers by default.
    *
-   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   asService = (opts?: ContainerAsServiceOpts): Service => {
     const ctx = this._ctx.select("asService", { ...opts })
@@ -2656,7 +2656,7 @@ export class Container extends BaseClient {
    * They can be accessed in the Dockerfile using the "secret" mount type and mount path /run/secrets/[secret-name], e.g. RUN --mount=type=secret,id=my-secret curl [http://example.com?token=$(cat /run/secrets/my-secret)](http://example.com?token=$(cat /run/secrets/my-secret))
    * @param opts.noInit If set, skip the automatic init process injected into containers created by RUN statements.
    *
-   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    * @deprecated Use `Directory.build` instead
    */
   build = (context: Directory, opts?: ContainerBuildOpts): Container => {
@@ -3149,7 +3149,7 @@ export class Container extends BaseClient {
    * @param opts.expand Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").
    * @param opts.noInit If set, skip the automatic init process injected into containers by default.
    *
-   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   up = async (opts?: ContainerUpOpts): Promise<void> => {
     if (this._up) {
@@ -3177,7 +3177,7 @@ export class Container extends BaseClient {
   }
 
   /**
-   * Retrieves this container plus the given OCI anotation.
+   * Retrieves this container plus the given OCI annotation.
    * @param name The name of the annotation.
    * @param value The value of the annotation.
    */
@@ -3279,7 +3279,7 @@ export class Container extends BaseClient {
    * @param opts.expand Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").
    * @param opts.noInit Skip the automatic init process injected into containers by default.
    *
-   * Only use this if you specifically need the command to be pid 1 in the container. Otherwise it may result in unexpected behavior. If you're not sure, you don't need this.
+   * Only use this if you specifically need the command to be pid 1 in the container. Otherwise, it may result in unexpected behavior. If you're not sure, you don't need this.
    */
   withExec = (args: string[], opts?: ContainerWithExecOpts): Container => {
     const metadata = {
@@ -3698,7 +3698,7 @@ export class Container extends BaseClient {
   }
 
   /**
-   * Return a new container spanshot with specified files removed
+   * Return a new container snapshot with specified files removed
    * @param paths Paths of the files to remove. Example: ["foo.txt, "/root/.ssh/config"
    * @param opts.expand Replace "${VAR}" or "$VAR" in the value of paths according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").
    */
@@ -3998,7 +3998,7 @@ export class Directory extends BaseClient {
   }
 
   /**
-   * Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.
+   * Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.
    * @param opts.dockerfile Path to the Dockerfile to use (e.g., "frontend.Dockerfile").
    * @param opts.platform The platform to build.
    * @param opts.buildArgs Build arguments to use in the build.
@@ -4008,7 +4008,7 @@ export class Directory extends BaseClient {
    * They will be mounted at /run/secrets/[secret-name].
    * @param opts.noInit If set, skip the automatic init process injected into containers created by RUN statements.
    *
-   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+   * This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
    */
   dockerBuild = (opts?: DirectoryDockerBuildOpts): Container => {
     const ctx = this._ctx.select("dockerBuild", { ...opts })
@@ -4096,7 +4096,7 @@ export class Directory extends BaseClient {
   }
 
   /**
-   * Returns a list of files and directories that matche the given pattern.
+   * Returns a list of files and directories that match the given pattern.
    * @param pattern Pattern to match (e.g., "*.md").
    */
   glob = async (pattern: string): Promise<string[]> => {
@@ -4134,7 +4134,7 @@ export class Directory extends BaseClient {
    * @param opts.dotall Allow the . pattern to match newlines in multiline mode.
    * @param opts.insensitive Enable case-insensitive matching.
    * @param opts.skipIgnored Honor .gitignore, .ignore, and .rgignore files.
-   * @param opts.skipHidden Skip hidden files (files starting with .).
+   * @param opts.skipHidden Skip hidden files (files starting with `.`).
    * @param opts.filesOnly Only return matching files, not lines and content
    * @param opts.limit Limit the number of results to return
    */
@@ -4463,7 +4463,7 @@ export class EngineCache extends BaseClient {
 
   /**
    * Prune the cache of releaseable entries
-   * @param opts.useDefaultPolicy Use the engine-wide default pruning policy if true, otherwise prune the whole cache of any releasable entries.
+   * @param opts.useDefaultPolicy Use the engine-wide default pruning policy if true; otherwise, prune the whole cache of any releasable entries.
    */
   prune = async (opts?: EngineCachePruneOpts): Promise<void> => {
     if (this._prune) {
@@ -5976,7 +5976,7 @@ export class File extends BaseClient {
    * @param opts.dotall Allow the . pattern to match newlines in multiline mode.
    * @param opts.insensitive Enable case-insensitive matching.
    * @param opts.skipIgnored Honor .gitignore, .ignore, and .rgignore files.
-   * @param opts.skipHidden Skip hidden files (files starting with .).
+   * @param opts.skipHidden Skip hidden files (files starting with `.`).
    * @param opts.filesOnly Only return matching files, not lines and content
    * @param opts.limit Limit the number of results to return
    */
@@ -7028,7 +7028,7 @@ export class Host extends BaseClient {
 
 /**
  * A graphql input type, which is essentially just a group of named args.
- * This is currently only used to represent pre-existing usage of graphql input types
+ * This is currently only used to represent preexisting usage of graphql input types
  * in the core API. It is not used by user modules and shouldn't ever be as user
  * module accept input objects via their id rather than graphql input types.
  */
@@ -9636,7 +9636,7 @@ export class Client extends BaseClient {
    * @param uri The URI of the secret store
    * @param opts.cacheKey If set, the given string will be used as the cache key for this secret. This means that any secrets with the same cache key will be considered equivalent in terms of cache lookups, even if they have different URIs or plaintext values.
    *
-   * For example, two secrets with the same cache key provided as secret env vars to other wise equivalent containers will result in the container withExecs hitting the cache for each other.
+   * For example, two secrets with the same cache key provided as secret env vars to otherwise equivalent containers will result in the container withExecs hitting the cache for each other.
    *
    * If not set, the cache key for the secret will be derived from its plaintext value as looked up when the secret is constructed.
    */

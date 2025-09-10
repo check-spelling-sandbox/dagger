@@ -189,7 +189,7 @@ For example, for a Dagger module named `my-module`:
 - **Default distribution package**: `my-module` (in `pyproject.toml`; can be changed)
 - **Default import package**: `src/my_module` (normalized after distribution package name; can be changed)
 
-Then, the default `main_object` entry point that the Python SDK looks for is `my_module:MyModule`, with a fallback to `main:MyModule` for backwards compatibility.
+Then, the default `main_object` entry point that the Python SDK looks for is `my_module:MyModule`, with a fall back to `main:MyModule` for backwards compatibility.
 
 Thus, if you have the following configuration:
 
@@ -431,7 +431,7 @@ use (
 
 Dagger modules in Python are built to be installed, like libraries. At module creation time, a `pyproject.toml` and `uv.lock` file will automatically be created that depend on the locally generated client library (in `./sdk`). This dependency is configured to be editable so that changes in the code don't require a re-install.
 
-With the `uv.lock` file, Dagger uses uv's [project management](https://docs.astral.sh/uv/concepts/projects/) capabilites, but it can be opted out by removing this file, in which case Dagger falls back to [the pip interface](https://docs.astral.sh/uv/pip/) instead.
+With the `uv.lock` file, Dagger uses uv's [project management](https://docs.astral.sh/uv/concepts/projects/) capabilities, but it can be opted out by removing this file, in which case Dagger falls back to [the pip interface](https://docs.astral.sh/uv/pip/) instead.
 
 :::info
 Dagger also supports pinning dependencies with a `pip-tools` compatible `requirements.lock` file in order to support the use of other project managers like Poetry or Hatch locally (when developing).
@@ -458,7 +458,7 @@ It will have to be manually kept in sync, though.
 
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
-Dagger modules in Typescript are built to be installed, like libraries. The runtime container installs the module code with:
+Dagger modules in TypeScript are built to be installed, like libraries. The runtime container installs the module code with:
 
 ```shell
 # executed by the runtime container

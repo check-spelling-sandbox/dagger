@@ -23,7 +23,7 @@ import (
 const (
 	// shellInternalCmd is the command that is used internally to avoid conflicts
 	// with interpreter builtins. For example when `echo` is used, the command becomes
-	// `__dag echo`. Otherwise we can't have a function named `echo`.
+	// `__dag echo`. Otherwise, we can't have a function named `echo`.
 	shellInternalCmd = "__dag"
 
 	// shellInterpBuiltinPrefix is the prefix that users should add to an
@@ -221,8 +221,8 @@ func (h *shellCallHandler) Exec(next interp.ExecHandlerFunc) interp.ExecHandlerF
 			if err == nil && st != nil {
 				// The last command in a pipeline will resolve this state and
 				// if that query returns an error, it will be returned here.
-				// Otherwise this should only fail if there's an unexpected
-				// error while writing to the pipe the interpreter sets up.
+				// Otherwise, this should only fail if there's an unexpected
+				// error while writing to the pipe set up by the interpreter.
 				err = h.Save(ctx, *st)
 			}
 		}
@@ -257,13 +257,13 @@ func (h *shellCallHandler) Exec(next interp.ExecHandlerFunc) interp.ExecHandlerF
 			if e := h.Save(ctx, *st); e != nil {
 				// Save is expected to return the current HandlerError if it's
 				// the last command in a pipeline or no error if it's not.
-				// Otherwise it has to be an unexpected failure when writing
+				// Otherwise, it has to be an unexpected failure when writing
 				// to the pipe that the interpreter sets up.
 				var he *HandlerError
 				if !errors.As(e, &he) {
 					// If we fail to pass the current error on to the next
-					// handler in the pipeline the next one will return a
-					// confiusing "unexpected input" error, but it's still
+					// handler in the pipeline then the next one will return a
+					// confusing "unexpected input" error, but it's still
 					// better than obfuscating the original one if we returned
 					// here, so just log it.
 					slog.Error("failed to save error state", "args", args, "err", e)
@@ -520,7 +520,7 @@ func (h *shellCallHandler) shellPreprocessArgs(
 	opts := fn.OptionalArgs()
 
 	// All CLI arguments are strings at first, but booleans can be omitted.
-	// We don't wan't to process values yet, just validate and consume the flags
+	// We don't want to process values yet, just validate and consume the flags
 	// so we get the remaining positional args.
 	for _, arg := range opts {
 		name := arg.FlagName()
@@ -679,13 +679,13 @@ func (h *shellCallHandler) parseArgumentValues(
 			continue
 		}
 		if err != nil {
-			return nil, fmt.Errorf("error addding flag: %w", err)
+			return nil, fmt.Errorf("error adding flag: %w", err)
 		}
 	}
 
 	// Parse arguments using flags to get the values matched with the right
 	// argument definition. Bypass the flag if the argument value is an object
-	// ID, otherwise set the flag value.
+	// ID; otherwise, set the flag value.
 	f := func(flag *pflag.Flag, value string) error {
 		a, err := fn.GetArg(flag.Name)
 		if err != nil {
@@ -800,7 +800,7 @@ func (h *shellCallHandler) parseFlagValue(ctx context.Context, value string, arg
 		return r, false, err
 	}
 
-	// Otherwise it may be an object that we want to bypass (for its ID)
+	// Otherwise, it may be an object that we want to bypass (for its ID)
 	st, err := h.state.Extract(ctx, GetStateKey(value))
 	if err != nil {
 		return "", false, err
@@ -954,7 +954,7 @@ func (h *shellCallHandler) GetDef(st *ShellState) *moduleDef {
 	}
 
 	// Every time the default module ref is set, there should be a corresponding
-	// value in h.modDefs. Otherwise there's a bug in the CLI.
+	// value in h.modDefs. Otherwise, there's a bug in the CLI.
 	panic(fmt.Sprintf("module %q not loaded", dig))
 }
 

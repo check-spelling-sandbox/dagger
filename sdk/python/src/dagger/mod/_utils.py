@@ -151,7 +151,7 @@ Obj_T = TypeVar("Obj_T", bound=Type)
 
 
 def is_self(annotation: type) -> typing.TypeGuard[type]:
-    """Check if an annotatino is a Self type."""
+    """Check if an annotation is a Self type."""
     # Typing extensions should return typing.Self if it exists (Python 3.11+)
     return annotation is typing_extensions.Self
 
@@ -200,7 +200,7 @@ def is_object_list_type(t: Any):
 
 
 def object_list_of(t: Any) -> type[Type] | None:
-    """Retrive a list's element type or None if not a list of objects."""
+    """Retrieve a list's element type or None if not a list of objects."""
     if is_object_list_type(t) and (el := list_of(t)):
         return cast(type[Type], el)
     return None

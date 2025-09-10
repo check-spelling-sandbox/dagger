@@ -1,6 +1,6 @@
 // Shared logic for managing Dagger versions
 //
-// In general, it attempts to follow go's psedudoversioning:
+// In general, it attempts to follow go's pseudoversioning:
 // https://go.dev/doc/modules/version-numbers
 package main
 
@@ -215,7 +215,7 @@ func (v Version) NextReleaseVersion(ctx context.Context) (string, error) {
 		}
 	}
 
-	// HACK: fallback to the contents
+	// HACK: fall back to the contents
 	// we can remove this when remote modules have KeepGitDir by default
 	if nextVersion == "" {
 		entries, err := v.Changes.Directory(".changes").Entries(ctx)

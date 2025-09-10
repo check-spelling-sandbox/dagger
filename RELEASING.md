@@ -59,7 +59,7 @@ sometime the communication protocol changes, or a bug fix or new feature
 requires changes on both the CLI and the engine.
 
 Before releasing, make sure to sanity check the backwards compatibility of a
-release. If you enounter issues, then:
+release. If you encounter issues, then:
 
 - [ ] Add a release note using `changie new` (or add it later manually).
 - [ ] Bump the minimum version numbers in [engine/version.go](https://github.com/dagger/dagger/blob/main/engine/version.go).
@@ -165,7 +165,7 @@ git push --set-upstream $DAGGER_REPO_REMOTE "$RELEASE_BRANCH"
 
 </details>
 
-Setup the local branch to align with the remote branch being released
+Set up the local branch to align with the remote branch being released
 
 ```console
 git checkout "$RELEASE_BRANCH"
@@ -292,7 +292,7 @@ This will kick off [`.github/workflows/publish.yml`](https://github.com/dagger/d
 - New docs to [docs.dagger.io](https://docs.dagger.io) (served from netlify)
 - Go packages to [🐙 dagger.io/dagger](https://pkg.go.dev/dagger.io/dagger) via [github.com/dagger/dagger-go-sdk](https://github.com/dagger/dagger-go-sdk/tags).
 - Python packages to [🐍 dagger-io](https://pypi.org/project/dagger-io).
-- Typescript packages to [⬢ npmjs.com/package/@dagger.io/dagger](https://www.npmjs.com/package/@dagger.io/dagger).
+- TypeScript packages to [⬢ npmjs.com/package/@dagger.io/dagger](https://www.npmjs.com/package/@dagger.io/dagger).
 - Elixir packages to [🧪 hex.pm/packages/dagger](https://hex.pm/packages/dagger).
 - Rust crates to [⚙️ crates.io/crate/dagger-sdk](https://crates.io/crates/dagger-sdk).
 - PHP packages to [🐘 packagist.org/packages/dagger/dagger](https://packagist.org/packages/dagger/dagger) via [github.com/dagger/dagger-php-sdk](https://github.com/dagger/dagger-php-sdk/tags).
@@ -355,7 +355,7 @@ See `dagger/dagger-for-github`'s [`RELEASING.md`](https://github.com/dagger/dagg
 
 🚨 Non-main branch release only: you'll likely want the changes from this PR in both `$RELEASE_BRANCH` and `main`.
 
-- [ ] Start an release improvements branch:
+- [ ] Start a release improvements branch:
 
 ```console
 git checkout -b improve-releasing-during-$ENGINE_VERSION

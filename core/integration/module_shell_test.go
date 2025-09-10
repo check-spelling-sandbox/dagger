@@ -95,11 +95,11 @@ func (ShellSuite) TestScriptMode(ctx context.Context, t *testctx.T) {
 	t.Run("root error", func(ctx context.Context, t *testctx.T) {
 		c := connect(ctx, t)
 		_, err := daggerCliBase(t, c).
-			WithExec([]string{"dagger", "qery"}, dagger.ContainerWithExecOpts{
+			WithExec([]string{"dagger", "query_"}, dagger.ContainerWithExecOpts{
 				ExperimentalPrivilegedNesting: true,
 			}).
 			Sync(ctx)
-		requireErrOut(t, err, `unknown command or file "qery" for "dagger"`)
+		requireErrOut(t, err, `unknown command or file "query_" for "dagger"`)
 		requireErrOut(t, err, "Did you mean this?\n\tquery")
 	})
 }
@@ -1239,7 +1239,7 @@ func (ShellSuite) TestPrintenvCommand(ctx context.Context, t *testctx.T) {
 		require.Contains(t, out, "/usr/local/bin")
 	})
 
-	t.Run("printenv non-existing", func(ctx context.Context, t *testctx.T) {
+	t.Run("printenv nonexistent", func(ctx context.Context, t *testctx.T) {
 		c := connect(ctx, t)
 		_, err := daggerCliBase(t, c).
 			With(daggerShell(`.printenv NON_EXISTING_VAR`)).

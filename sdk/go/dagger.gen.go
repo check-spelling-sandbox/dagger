@@ -772,7 +772,7 @@ type ContainerAsServiceOpts struct {
 	Expand bool
 	// If set, skip the automatic init process injected into containers by default.
 	//
-	// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+	// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
 	NoInit bool
 }
 
@@ -872,7 +872,7 @@ type ContainerBuildOpts struct {
 	Secrets []*Secret
 	// If set, skip the automatic init process injected into containers created by RUN statements.
 	//
-	// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+	// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
 	NoInit bool
 }
 
@@ -1560,7 +1560,7 @@ type ContainerUpOpts struct {
 	Expand bool
 	// If set, skip the automatic init process injected into containers by default.
 	//
-	// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+	// This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
 	NoInit bool
 }
 
@@ -1623,7 +1623,7 @@ func (r *Container) User(ctx context.Context) (string, error) {
 	return response, q.Execute(ctx)
 }
 
-// Retrieves this container plus the given OCI anotation.
+// Retrieves this container plus the given OCI annotation.
 func (r *Container) WithAnnotation(name string, value string) *Container {
 	q := r.query.Select("withAnnotation")
 	q = q.Arg("name", name)
@@ -1789,7 +1789,7 @@ type ContainerWithExecOpts struct {
 	Expand bool
 	// Skip the automatic init process injected into containers by default.
 	//
-	// Only use this if you specifically need the command to be pid 1 in the container. Otherwise it may result in unexpected behavior. If you're not sure, you don't need this.
+	// Only use this if you specifically need the command to be pid 1 in the container. Otherwise, it may result in unexpected behavior. If you're not sure, you don't need this.
 	NoInit bool
 }
 
@@ -2475,7 +2475,7 @@ type ContainerWithoutFilesOpts struct {
 	Expand bool
 }
 
-// Return a new container spanshot with specified files removed
+// Return a new container snapshot with specified files removed
 func (r *Container) WithoutFiles(paths []string, opts ...ContainerWithoutFilesOpts) *Container {
 	q := r.query.Select("withoutFiles")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -2851,11 +2851,11 @@ type DirectoryDockerBuildOpts struct {
 	Secrets []*Secret
 	// If set, skip the automatic init process injected into containers created by RUN statements.
 	//
-	// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise it may result in unexpected behavior.
+	// This should only be used if the user requires that their exec processes be the pid 1 process in the container. Otherwise, it may result in unexpected behavior.
 	NoInit bool
 }
 
-// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.
+// Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.
 func (r *Directory) DockerBuild(opts ...DirectoryDockerBuildOpts) *Container {
 	q := r.query.Select("dockerBuild")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -3007,7 +3007,7 @@ func (r *Directory) Filter(opts ...DirectoryFilterOpts) *Directory {
 	}
 }
 
-// Returns a list of files and directories that matche the given pattern.
+// Returns a list of files and directories that match the given pattern.
 func (r *Directory) Glob(ctx context.Context, pattern string) ([]string, error) {
 	q := r.query.Select("glob")
 	q = q.Arg("pattern", pattern)
@@ -3087,7 +3087,7 @@ type DirectorySearchOpts struct {
 	Insensitive bool
 	// Honor .gitignore, .ignore, and .rgignore files.
 	SkipIgnored bool
-	// Skip hidden files (files starting with .).
+	// Skip hidden files (files starting with `.`).
 	SkipHidden bool
 	// Only return matching files, not lines and content
 	FilesOnly bool
@@ -3598,7 +3598,7 @@ func (r *EngineCache) MinFreeSpace(ctx context.Context) (int, error) {
 
 // EngineCachePruneOpts contains options for EngineCache.Prune
 type EngineCachePruneOpts struct {
-	// Use the engine-wide default pruning policy if true, otherwise prune the whole cache of any releasable entries.
+	// Use the engine-wide default pruning policy if true; otherwise, prune the whole cache of any releasable entries.
 	UseDefaultPolicy bool
 }
 
@@ -5310,7 +5310,7 @@ type FileSearchOpts struct {
 	Insensitive bool
 	// Honor .gitignore, .ignore, and .rgignore files.
 	SkipIgnored bool
-	// Skip hidden files (files starting with .).
+	// Skip hidden files (files starting with `.`).
 	SkipHidden bool
 	// Only return matching files, not lines and content
 	FilesOnly bool
@@ -6721,7 +6721,7 @@ func (r *Host) UnixSocket(path string) *Socket {
 }
 
 // A graphql input type, which is essentially just a group of named args.
-// This is currently only used to represent pre-existing usage of graphql input types
+// This is currently only used to represent preexisting usage of graphql input types
 // in the core API. It is not used by user modules and shouldn't ever be as user
 // module accept input objects via their id rather than graphql input types.
 type InputTypeDef struct {
@@ -9906,7 +9906,7 @@ func (r *Client) ModuleSource(refString string, opts ...ModuleSourceOpts) *Modul
 type SecretOpts struct {
 	// If set, the given string will be used as the cache key for this secret. This means that any secrets with the same cache key will be considered equivalent in terms of cache lookups, even if they have different URIs or plaintext values.
 	//
-	// For example, two secrets with the same cache key provided as secret env vars to other wise equivalent containers will result in the container withExecs hitting the cache for each other.
+	// For example, two secrets with the same cache key provided as secret env vars to otherwise equivalent containers will result in the container withExecs hitting the cache for each other.
 	//
 	// If not set, the cache key for the secret will be derived from its plaintext value as looked up when the secret is constructed.
 	CacheKey string

@@ -2892,7 +2892,7 @@ func (ContainerSuite) TestAsTarballCached(ctx context.Context, t *testctx.T) {
 	// make sure the index.json timestamp changes so we get a different hash
 	time.Sleep(2 * time.Second)
 
-	// setup a second client, so we don't share the dagql cache
+	// set up a second client, so we don't share the dagql cache
 	c2 := connect(ctx, t)
 	ctr2 := c2.Container().From(alpineImage)
 	second, err := ctr2.
@@ -3357,7 +3357,7 @@ func (ContainerSuite) TestImageRef(ctx context.Context, t *testctx.T) {
 	})
 }
 
-func (ContainerSuite) TestInsecureRootCapabilites(ctx context.Context, t *testctx.T) {
+func (ContainerSuite) TestInsecureRootCapabilities(ctx context.Context, t *testctx.T) {
 	c := connect(ctx, t)
 
 	// This isn't exhaustive, but it's the major important ones. Being exhaustive
@@ -3397,7 +3397,7 @@ func (ContainerSuite) TestInsecureRootCapabilites(ctx context.Context, t *testct
 	}
 }
 
-func (ContainerSuite) TestInsecureRootCapabilitesWithService(ctx context.Context, t *testctx.T) {
+func (ContainerSuite) TestInsecureRootCapabilitiesWithService(ctx context.Context, t *testctx.T) {
 	c := connect(ctx, t)
 
 	middleware := func(ctr *dagger.Container) *dagger.Container {
@@ -3911,7 +3911,7 @@ func (ContainerSuite) TestImageLoadCompatibility(ctx context.Context, t *testctx
 					tmpdir := t.TempDir()
 					tmpfile := filepath.Join(tmpdir, fmt.Sprintf("test-%s-%s-%s.tar", dockerVersion, mediaType, compression))
 					_, err := c.Container().From(alpineImage).
-						// we need a unique image, otherwise docker load skips it after the first tar load
+						// we need a unique image; otherwise, docker load skips it after the first tar load
 						WithExec([]string{"sh", "-c", "echo '" + string(compression) + string(mediaType) + "' > /foo"}).
 						Export(ctx, tmpfile, dagger.ContainerExportOpts{
 							MediaTypes:        mediaType,

@@ -74,7 +74,7 @@ export enum {{ $enumName }} { {{- with .Directives.SourceMap }} // {{ .Module }}
 
 /**
  * Utility function to convert a {{ .Name }} value to its name so
- * it can be uses as argument to call a exposed function.
+ * it can be uses as argument to call an exposed function.
  */
 function {{ .Name | PascalCase }}ValueToName(value: {{ .Name }}): string {
   switch (value) {
@@ -153,7 +153,7 @@ export type {{ $.Name | FormatName }} = {
    */
 		{{- end }}
 
-		{{- /* Write type, if it's an id it's an output, otherwise it's an input. */ -}}
+		{{- /* Write type, if it's an id it's an output; otherwise, it's an input. */ -}}
 		{{- if eq $field.Name "id" }}
   {{ $field.Name }}{{ $opt }}: {{ $field.TypeRef | FormatOutputType }} {{- with .Directives.SourceMap }} // {{ .Module }} ({{ .Filelink | ModuleRelPath }}) {{- end }}
 		{{- else }}

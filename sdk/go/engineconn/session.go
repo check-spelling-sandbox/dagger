@@ -120,7 +120,7 @@ func startCLISession(ctx context.Context, binPath string, cfg *Config) (_ Engine
 	// error when trying to exec it below.
 	//
 	// We workaround this the same way suggested in the issue, by sleeping
-	// and retrying the exec a few times. This is such an obscure case that
+	// and retrying the exec call a few times. This is such an obscure case that
 	// this retry approach should be fine. It can only happen when a new
 	// dagger binary needs to be created and even then only if many
 	// threads within this process are trying to provision it at the same time.
@@ -156,7 +156,7 @@ func startCLISession(ctx context.Context, binPath string, cfg *Config) (_ Engine
 
 		// Write stderr to logWriter but also buffer it for the duration
 		// of this function so we can return it in the error if something
-		// goes wrong here. Otherwise the only error ends up being EOF and
+		// goes wrong here. Otherwise, the only error ends up being EOF and
 		// the user has to enable log output to see anything.
 		stderrBuf = &safeBuffer{}
 		discardableBuf := &discardableWriter{w: stderrBuf}

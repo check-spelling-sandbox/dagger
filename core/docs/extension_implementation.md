@@ -9,7 +9,7 @@ Code implementing an extension executes in its own isolated container, but other
 
 The end result is the ability for users to create re-usable abstractions over both the Dagger API and any arbitrary code in general. Extensions are invoked the same way Dagger invokes any Exec, so they benefit from all the same caching and other features provided by Dagger.
 
-Importantly, because extensions are merged into the language-agnostic graphql API, they can be invoked across language boundaries. Go code can call a Python extension, which internally can call a Typescript extension, etc. The language implementing the extension is opaque to the caller.
+Importantly, because extensions are merged into the language-agnostic graphql API, they can be invoked across language boundaries. Go code can call a Python extension, which internally can call a TypeScript extension, etc. The language implementing the extension is opaque to the caller.
 
 ## Extension Protocol Spec
 
@@ -46,8 +46,8 @@ When a resolver from an extension needs to be invoked:
 1. The user code will be mounted at `/src`.
 1. A file `/inputs/dagger.json` will be mounted as read-only into the ExecOp, with the following (json-encoded) contents:
    - `resolver` - identifies the field that needs to be resolver, in the form of `<ObjectName>.<FieldName>`. For instance, if the `build` field of the `Alpine` object is being invoked, this will be set to `Alpine.build`
-   - `args` - The args provided to the GraphQL resolver, as described [here](https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-arguments).
-   - `parent` - The result of the parent resolver to this field in the GraphQL query (if any), as described [here](https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-arguments).
+   - `args` - The [args provided to the GraphQL resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-arguments).
+   - `parent` - The result of the [parent resolver to this field in the GraphQL query](https://www.apollographql.com/docs/apollo-server/data/resolvers/#resolver-arguments) (if any).
 1. A directory `/outputs` will be mounted as read-write into the ExecOp. It is where the runtime will write output of the resolver (as described more below)
 1. The `ExperimentalPrivilegedNesting` flag is set, enabling access back to the "parent" dagger session
 
@@ -160,7 +160,7 @@ Each individual input to a command should also support an optional doc string an
 The way this is implemented is up to the SDK, e.g.:
 * In Go, these are comments above the command
 * In Python, type annotations are used
-* For Typescript, TBD but jsdoc comments are one reasonable option
+* For TypeScript, TBD but jsdoc comments are one reasonable option
 
 ### Dagger Client
 An already connected dagger client should be available to the command.

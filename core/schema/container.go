@@ -90,7 +90,7 @@ func (s *containerSchema) Install(srv *dagql.Server) {
 						/run/secrets/my-secret))`),
 				dagql.Arg("noInit").Doc(`If set, skip the automatic init process injected into containers created by RUN statements.`,
 					`This should only be used if the user requires that their exec processes be the
-					pid 1 process in the container. Otherwise it may result in unexpected behavior.`,
+					pid 1 process in the container. Otherwise, it may result in unexpected behavior.`,
 				),
 			),
 
@@ -357,7 +357,7 @@ func (s *containerSchema) Install(srv *dagql.Server) {
 			),
 
 		dagql.NodeFunc("withoutFiles", DagOpContainerWrapper(srv, s.withoutFiles)).
-			Doc(`Return a new container spanshot with specified files removed`).
+			Doc(`Return a new container snapshot with specified files removed`).
 			Args(
 				dagql.Arg("paths").Doc(`Paths of the files to remove. Example: ["foo.txt, "/root/.ssh/config"`),
 				dagql.Arg("expand").Doc(`Replace "${VAR}" or "$VAR" in the value of paths according to the current `+
@@ -474,7 +474,7 @@ func (s *containerSchema) Install(srv *dagql.Server) {
 						`environment variables defined in the container (e.g. "/$VAR/foo").`),
 				dagql.Arg("noInit").Doc(
 					`Skip the automatic init process injected into containers by default.`,
-					`Only use this if you specifically need the command to be pid 1 in the container. Otherwise it may result in unexpected behavior. If you're not sure, you don't need this.`,
+					`Only use this if you specifically need the command to be pid 1 in the container. Otherwise, it may result in unexpected behavior. If you're not sure, you don't need this.`,
 				),
 			),
 
@@ -513,7 +513,7 @@ func (s *containerSchema) Install(srv *dagql.Server) {
 			),
 
 		dagql.Func("withAnnotation", s.withAnnotation).
-			Doc(`Retrieves this container plus the given OCI anotation.`).
+			Doc(`Retrieves this container plus the given OCI annotation.`).
 			Args(
 				dagql.Arg("name").Doc(`The name of the annotation.`),
 				dagql.Arg("value").Doc(`The value of the annotation.`),
@@ -798,7 +798,7 @@ func (s *containerSchema) from(ctx context.Context, parent dagql.ObjectResult[*c
 	if err != nil {
 		return inst, fmt.Errorf("failed to parse image address %s: %w", args.Address, err)
 	}
-	// add a default :latest if no tag or digest, otherwise this is a no-op
+	// add a default :latest if no tag or digest; otherwise, this is a no-op
 	refName = reference.TagNameOnly(refName)
 
 	if refName, isCanonical := refName.(reference.Canonical); isCanonical {

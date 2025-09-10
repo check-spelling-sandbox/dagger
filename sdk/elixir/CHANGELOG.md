@@ -186,7 +186,7 @@ This SDK uses 🚙 Engine + 🚗 CLI version `v0.18.6`. [See what changed in tha
 📖 https://hexdocs.pm/dagger/Dagger.html
 
 ### Added
-- Add the `Req` GrapqhQL HTTP client backend by @wingyplus in https://github.com/dagger/dagger/pull/10104
+- Add the `Req` GraphQL HTTP client backend by @wingyplus in https://github.com/dagger/dagger/pull/10104
 
 ### Dependencies
 - Bump Engine to v0.18.6 by @sipsma in https://github.com/dagger/dagger/pull/10337
@@ -1245,7 +1245,7 @@ This SDK uses 🚙 Engine + 🚗 CLI version `v0.8.4`. [See what changed in that
 
 ### Fixed
 - fix connect always timeout by @wingyplus in https://github.com/dagger/dagger/pull/5646
-- Fallback to stable cli when cannot find local cli binary by @wingyplus in https://github.com/dagger/dagger/pull/5654
+- Fall back to stable cli when cannot find local cli binary by @wingyplus in https://github.com/dagger/dagger/pull/5654
 
 ### Dependencies
 - Bump Engine to v0.8.4 by @github-actions in https://github.com/dagger/dagger/pull/5657

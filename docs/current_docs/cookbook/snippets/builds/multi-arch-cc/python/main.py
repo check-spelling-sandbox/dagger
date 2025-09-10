@@ -17,7 +17,7 @@ class MyModule:
             ),
         ],
     ) -> str:
-        """Build an publish multi-platform image"""
+        """Build a publish multi-platform image"""
         # platforms to build for and push in a multi-platform image
         platforms = [
             dagger.Platform("linux/amd64"),  # a.k.a. x86_64
@@ -34,7 +34,7 @@ class MyModule:
             platform_arch = await dag.containerd().architecture_of(platform)
 
             # pull golang image for the *host* platform, this is done by
-            # not specifying the a platform. The default is the host platform.
+            # not specifying a platform. The default is the host platform.
             ctr = (
                 dag.container()
                 .from_("golang:1.21-alpine")
@@ -54,7 +54,7 @@ class MyModule:
                 .with_exec(["go", "build", "-o", "/output/hello"])
             )
 
-            # selelct output directory
+            # select output directory
             output_dir = ctr.directory("/output")
 
             # wrap output directory in a new empty container marked

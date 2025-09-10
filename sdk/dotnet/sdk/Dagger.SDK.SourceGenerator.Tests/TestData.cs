@@ -3282,7 +3282,7 @@ public static class TestData
                       }
                     ],
                     "deprecationReason": null,
-                    "description": "Returns a list of files and directories that matche the given pattern.",
+                    "description": "Returns a list of files and directories that match the given pattern.",
                     "isDeprecated": false,
                     "name": "glob",
                     "type": {
@@ -4896,7 +4896,7 @@ public static class TestData
                   {
                     "args": [],
                     "deprecationReason": null,
-                    "description": "The directory containing everything needed to load load and use the module.",
+                    "description": "The directory containing everything needed to load and use the module.",
                     "isDeprecated": false,
                     "name": "contextDirectory",
                     "type": {
@@ -5697,7 +5697,7 @@ public static class TestData
                 "possibleTypes": []
               },
               {
-                "description": "A graphql input type, which is essentially just a group of named args.\nThis is currently only used to represent pre-existing usage of graphql input types\nin the core API. It is not used by user modules and shouldn't ever be as user\nmodule accept input objects via their id rather than graphql input types.",
+                "description": "A graphql input type, which is essentially just a group of named args.\nThis is currently only used to represent preexisting usage of graphql input types\nin the core API. It is not used by user modules and shouldn't ever be as user\nmodule accept input objects via their id rather than graphql input types.",
                 "enumValues": [],
                 "fields": [
                   {
@@ -6025,13 +6025,13 @@ public static class TestData
                 "possibleTypes": []
               },
               {
-                "description": "Module source that that originates from a path locally relative to an arbitrary directory.",
+                "description": "Module source that originates from a path locally relative to an arbitrary directory.",
                 "enumValues": [],
                 "fields": [
                   {
                     "args": [],
                     "deprecationReason": null,
-                    "description": "The directory containing everything needed to load load and use the module.",
+                    "description": "The directory containing everything needed to load and use the module.",
                     "isDeprecated": false,
                     "name": "contextDirectory",
                     "type": {
@@ -6562,7 +6562,7 @@ public static class TestData
                   {
                     "args": [],
                     "deprecationReason": null,
-                    "description": "If the source is a of kind git, the git source representation of it.",
+                    "description": "If the source is of kind git, the git source representation of it.",
                     "isDeprecated": false,
                     "name": "asGitSource",
                     "type": {
@@ -6634,7 +6634,7 @@ public static class TestData
                   {
                     "args": [],
                     "deprecationReason": null,
-                    "description": "The directory containing everything needed to load load and use the module.",
+                    "description": "The directory containing everything needed to load and use the module.",
                     "isDeprecated": false,
                     "name": "contextDirectory",
                     "type": {

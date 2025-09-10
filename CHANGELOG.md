@@ -896,7 +896,7 @@ Fixed a regression causing the LLM to see malformed non-string scalar responses.
 - Implements CLI call argument `--interactive-command` for overriding the default command used in interactive mode by @samalba in https://github.com/dagger/dagger/pull/8171
 
 ### Fixed
-- Error out if non-existent local module directory is passed to CLI by @jedevc in https://github.com/dagger/dagger/pull/8193 \
+- Error out if nonexistent local module directory is passed to CLI by @jedevc in https://github.com/dagger/dagger/pull/8193 \
   The file-not-found errors were previously silently ignored for the top-level
   module passed in the CLI.
 - Silence noisy `failed to get repo HEAD` CLI error by @jedevc in https://github.com/dagger/dagger/pull/8189
@@ -944,7 +944,7 @@ Fixed a regression causing the LLM to see malformed non-string scalar responses.
 - Fixed enum lists in modules by @helderco in https://github.com/dagger/dagger/pull/8096
 - Fixed referring to module's own objects/interfaces/enums in constructor signature by @jedevc in https://github.com/dagger/dagger/pull/8115 \
   Previously, modules would fail to launch if they declared a constructor that
-  contained a reference to a type from it's own module in it's args.
+  contained a reference to a type from its own module in its args.
 - Fixed using custom enum types as optional arguments by @jedevc in https://github.com/dagger/dagger/pull/8148 \
   Previously, function calls that defined an optional argument would not be
   callable.
@@ -1042,7 +1042,7 @@ are captured [in this blog post](https://dagger.io/blog/dagger-0-12).
 - api: Skip entrypoint by default in `withExec` by @helderco in https://github.com/dagger/dagger/pull/7136 \
   Callers relying on a `Container`'s entrypoint will need to be updated
   to opt-in with `useEntrypoint`.
-- api: Don't fallback to the default command on `Container.stdout` and `Container.stderr` by @helderco in https://github.com/dagger/dagger/pull/7857 \
+- api: Don't fall back to the default command on `Container.stdout` and `Container.stderr` by @helderco in https://github.com/dagger/dagger/pull/7857 \
   Callers of `stdout` and `stderr` without a previous `withExec` will need to
   insert an explicit empty `withExec`.
 - api: `Container.terminal` now returns a `Container` by @aluzzardi in https://github.com/dagger/dagger/pull/7586 \
@@ -1212,7 +1212,7 @@ changes can be found in the PR descriptions linked above.
 ### Fixed
 - cli: Fix panic when calling function with list of scalars by @jedevc in https://github.com/dagger/dagger/pull/7322
 - Avoid hang caused by client id conflicts by @sipsma in https://github.com/dagger/dagger/pull/7335
-- Avoid unneccessary module cache invalidation from internal plumbing values by @sipsma in https://github.com/dagger/dagger/pull/7336
+- Avoid unnecessary module cache invalidation from internal plumbing values by @sipsma in https://github.com/dagger/dagger/pull/7336
 
 ### What to do next?
 - Read the [documentation](https://docs.dagger.io)
@@ -1366,7 +1366,7 @@ changes can be found in the PR descriptions linked above.
 
 ### Added
 - New [Dagger functions and modules](https://docs.dagger.io/quickstart)
-    - Modules allow bundling up and sharing reuable pipeline functions in a
+    - Modules allow bundling up and sharing reusable pipeline functions in a
       cross-language way.
     - New CLI commands (such as `dagger call`) provide a consistent interface
       to easily invoke functions inside modules.
@@ -1459,7 +1459,7 @@ changes can be found in the PR descriptions linked above.
 
 
 ### Added
-- New `withoutEntryoint` and `withoutDefaultArgs` fields by @helderco in https://github.com/dagger/dagger/pull/6278
+- New `withoutEntrypoint` and `withoutDefaultArgs` fields by @helderco in https://github.com/dagger/dagger/pull/6278
 
 ### Fixed
 - Clear `defaultArgs` on `withEntrypoint` by default by @helderco in https://github.com/dagger/dagger/pull/6280

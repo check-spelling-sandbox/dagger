@@ -723,7 +723,7 @@ func another() {
 		require.Empty(t, results)
 	})
 
-	t.Run("case sensitive search", func(ctx context.Context, t *testctx.T) {
+	t.Run("case-sensitive search", func(ctx context.Context, t *testctx.T) {
 		c := connect(ctx, t)
 
 		file := c.Directory().
@@ -738,7 +738,7 @@ func another() {
 		require.Equal(t, 1, lineNumber0)
 	})
 
-	t.Run("case insensitive search", func(ctx context.Context, t *testctx.T) {
+	t.Run("case-insensitive search", func(ctx context.Context, t *testctx.T) {
 		c := connect(ctx, t)
 
 		file := c.Directory().
@@ -998,7 +998,7 @@ func (FileSuite) TestWithReplaced(ctx context.Context, t *testctx.T) {
 		require.Contains(t, strings.ToLower(err.Error()), "multiple")
 	})
 
-	t.Run("first occurrence after non-existent line", func(ctx context.Context, t *testctx.T) {
+	t.Run("first occurrence after nonexistent line", func(ctx context.Context, t *testctx.T) {
 		file := c.Directory().
 			WithNewFile("test.txt", "line 1\nline 2").
 			File("test.txt")

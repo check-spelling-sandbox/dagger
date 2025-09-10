@@ -3167,7 +3167,7 @@ func (t *Test) GetEncoded(ctx context.Context) (string, error) {
 	})
 
 	t.Run("duplicate secret names", func(ctx context.Context, t *testctx.T) {
-		// check that each module has it's own segmented secret store, by
+		// check that each module has its own segmented secret store, by
 		// writing secrets with the same name
 
 		var logs safeBuffer
@@ -4691,15 +4691,15 @@ export class Test {
 					requireErrOut(t, err, `path should be relative to the context directory`)
 				})
 
-				t.Run("non existing dir path", func(ctx context.Context, t *testctx.T) {
-					out, err := modGen.With(daggerCall("non-existing-path")).Stdout(ctx)
+				t.Run("nonexistent dir path", func(ctx context.Context, t *testctx.T) {
+					out, err := modGen.With(daggerCall("nonexistent-path")).Stdout(ctx)
 					require.Empty(t, out)
 					require.Error(t, err)
 					requireErrOut(t, err, "no such file or directory")
 				})
 
-				t.Run("non existing file", func(ctx context.Context, t *testctx.T) {
-					out, err := modGen.With(daggerCall("non-existing-file")).Stdout(ctx)
+				t.Run("nonexistent file", func(ctx context.Context, t *testctx.T) {
+					out, err := modGen.With(daggerCall("nonexistent-file")).Stdout(ctx)
 					require.Empty(t, out)
 					require.Error(t, err)
 					requireErrOut(t, err, "no such file or directory")
@@ -5350,7 +5350,7 @@ func (t *Test) IgnoreDirButKeepFileInSubdir(
 			require.NoError(t, err)
 			require.Equal(t, ".gitattributes\n.gitignore\ngo.mod\ngo.sum\ninternal/\nmain.go\n", out)
 
-			// Verify the directories exist but files are correctly ignored (including the .gitiginore exclusion)
+			// Verify the directories exist but files are correctly ignored (including the .gitignore exclusion)
 			out, err = modGen.With(daggerCall("ignore-every-go-file-except-main-go", "directory", "--path", "internal", "entries")).Stdout(ctx)
 			require.NoError(t, err)
 			require.Equal(t, "foo/\n", out)

@@ -101,7 +101,7 @@ defmodule Dagger.Directory do
   end
 
   @doc """
-  Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.
+  Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.
   """
   @spec docker_build(t(), [
           {:dockerfile, String.t() | nil},
@@ -212,7 +212,7 @@ defmodule Dagger.Directory do
   end
 
   @doc """
-  Returns a list of files and directories that matche the given pattern.
+  Returns a list of files and directories that match the given pattern.
   """
   @spec glob(t(), String.t()) :: {:ok, [String.t()]} | {:error, term()}
   def glob(%__MODULE__{} = directory, pattern) do

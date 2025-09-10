@@ -89,12 +89,12 @@ type spanData struct {
 	parentID dagui.SpanID
 
 	// ready indicates that the span is ready to be displayed - this allows to
-	// start bufferings logs before we've actually exported the span itself
+	// start buffering logs before we've actually exported the span itself
 	ready bool
 	// started indicates that the span has started and has been rendered for
 	// the first time
 	started bool
-	// ended indicates that the span has copmleted and has been rendered for
+	// ended indicates that the span has completed and has been rendered for
 	// the second time
 	ended bool
 

@@ -129,7 +129,7 @@ type shellCallHandler struct {
 }
 
 // Debug prints to stderr internal command handler state and workflow that
-// can be helpful while developing the shell or even troubhleshooting, and
+// can be helpful while developing the shell or even troubleshooting, and
 // is toggled with the hidden builtin .debug
 func (h *shellCallHandler) Debug() bool {
 	h.mu.RLock()
@@ -614,8 +614,8 @@ func (o *terminalWriter) Write(p []byte) (n int, err error) {
 	return o.fn(p)
 }
 
-// Shell state is piped between exec handlers and only in the end the runner
-// writes the final output to the stdoutWriter. We need to check if that
+// Shell state is piped between exec handlers and only in the end does the
+// runner write the final output to the stdoutWriter. We need to check if that
 // state needs to be resolved into an API request and handle the response
 // appropriately. Note that this can happen in parallel if commands are
 // separated with a '&'.

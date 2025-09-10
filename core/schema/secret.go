@@ -27,7 +27,7 @@ func (s *secretSchema) Install(srv *dagql.Server) {
 				dagql.Arg("uri").Doc(`The URI of the secret store`),
 				dagql.Arg("cacheKey").Doc(
 					`If set, the given string will be used as the cache key for this secret. This means that any secrets with the same cache key will be considered equivalent in terms of cache lookups, even if they have different URIs or plaintext values.`,
-					`For example, two secrets with the same cache key provided as secret env vars to other wise equivalent containers will result in the container withExecs hitting the cache for each other.`,
+					`For example, two secrets with the same cache key provided as secret env vars to otherwise equivalent containers will result in the container withExecs hitting the cache for each other.`,
 					`If not set, the cache key for the secret will be derived from its plaintext value as looked up when the secret is constructed.`,
 				),
 			),
@@ -107,7 +107,7 @@ func (s *secretSchema) secret(
 		/* Derive the cache key from the plaintext value using argon2.
 		We avoid a simple xxh3/sha256/etc. hash since the cache key is public; it's sent around in IDs and stored on the local disk unencrypted.
 
-		This is similar to the problems a web-server avoids when hashing passwords in that we want to make brute-forcing the secret from its hash
+		This is similar to the problems that a web-server avoids when hashing passwords in that we want to make brute-forcing the secret from its hash
 		infeasible, even in offline attacks. This argon2 hash takes on the order of 1-100ms, which is 10s of millions of times slower than the
 		time to compute e.g. a sha256 hash on a modern GPU, but not slow enough to be a noticeable bottleneck in our execution.
 

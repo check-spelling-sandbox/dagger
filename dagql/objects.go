@@ -386,7 +386,7 @@ func (r Result[T]) ResultWithPostCall(fn cache.PostCallFunc) Result[T] {
 // NOTE: customDigest must be used with care as any instances with the same digest
 // will be considered equivalent and can thus replace each other in the cache.
 // Generally, customDigest should be used when there's a content-based digest available
-// that won't be caputured by the default, call-chain derived digest.
+// that won't be captured by the default, call-chain derived digest.
 func (r Result[T]) WithDigest(customDigest digest.Digest) Result[T] {
 	return Result[T]{
 		constructor: r.constructor.WithDigest(customDigest),
@@ -1238,7 +1238,7 @@ func (fields Fields[T]) Install(server *Server) {
 
 type CacheSpec struct {
 	// If set, this GetCacheConfig will be called before ID evaluation to determine the
-	// ID's digest. Otherwise the ID defaults to the digest of the call chain.
+	// ID's digest. Otherwise, the ID defaults to the digest of the call chain.
 	GetCacheConfig GenericGetCacheConfigFunc
 
 	// If set, the result of this field will never be cached and not have concurrent equal

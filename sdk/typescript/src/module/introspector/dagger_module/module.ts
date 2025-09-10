@@ -146,7 +146,7 @@ export class DaggerModule {
    * - scalars
    * - interfaces
    *
-   * If the reference is an object, a class or an interface, recursively find the references of the object.
+   * If the reference is an object, a class, or an interface, recursively find the references of the object.
    *
    * *Note*: If a class is referenced but not exported and not decorated with `@object()`, we throw an error
    * because we aim to be explicit. (TomChv: Should we change this behaviour?)
@@ -218,7 +218,7 @@ export class DaggerModule {
           continue
         }
 
-        // Typescript enum declaration cannot be decorated, so we don't check it.
+        // TypeScript enum declaration cannot be decorated, so we don't check it.
         const daggerEnum = new DaggerEnum(enumRef.node, this.ast)
         this.enums[daggerEnum.name] = daggerEnum
         this.references[daggerEnum.name] = {

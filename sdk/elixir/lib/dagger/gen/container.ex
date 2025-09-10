@@ -642,7 +642,7 @@ defmodule Dagger.Container do
   end
 
   @doc """
-  Retrieves this container plus the given OCI anotation.
+  Retrieves this container plus the given OCI annotation.
   """
   @spec with_annotation(t(), String.t(), String.t()) :: Dagger.Container.t()
   def with_annotation(%__MODULE__{} = container, name, value) do
@@ -1290,7 +1290,7 @@ defmodule Dagger.Container do
   end
 
   @doc """
-  Return a new container spanshot with specified files removed
+  Return a new container snapshot with specified files removed
   """
   @spec without_files(t(), [String.t()], [{:expand, boolean() | nil}]) :: Dagger.Container.t()
   def without_files(%__MODULE__{} = container, paths, optional_args \\ []) do

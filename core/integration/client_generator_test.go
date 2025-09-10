@@ -623,7 +623,7 @@ main()
 		}
 	})
 
-	t.Run("cohexist with a module implementation", func(ctx context.Context, t *testctx.T) {
+	t.Run("coexist with a module implementation", func(ctx context.Context, t *testctx.T) {
 		type testCase struct {
 			baseImage string
 			generator string
@@ -1269,7 +1269,7 @@ func main() {
 		With(daggerClientInstallAt("go", "./dagger2")).
 		WithNewFile("main.go", mainGoFile)
 
-	t.Run("execute two differents clients in one session", func(ctx context.Context, t *testctx.T) {
+	t.Run("execute two different clients in one session", func(ctx context.Context, t *testctx.T) {
 		out, err := moduleSrc.With(daggerNonNestedRun("go", "run", "main.go")).Stdout(ctx)
 
 		require.NoError(t, err)
@@ -1390,7 +1390,7 @@ main()`))
 	}
 }
 
-func (ClientGeneratorTest) TestMissmatchDependencyVersion(ctx context.Context, t *testctx.T) {
+func (ClientGeneratorTest) TestMismatchDependencyVersion(ctx context.Context, t *testctx.T) {
 	c := connect(ctx, t)
 
 	moduleSrc := c.Container().From(golangImage).
@@ -1430,7 +1430,7 @@ func (ClientGeneratorTest) TestMissmatchDependencyVersion(ctx context.Context, t
 			defaultGenDir)).
 		With(daggerClientInstall("go")).
 		WithExec([]string{"apk", "add", "jq"}).
-		// Update the dagger.json manually to not rettrigger the generation so we can verify that it triggers an error
+		// Update the dagger.json manually to not retrigger the generation so we can verify that it triggers an error
 		// on execute
 		WithExec([]string{"sh", "-c", `sh -c 'cat dagger.json | jq '\''(.dependencies[] | select(.name == "hello") | .source) = "github.com/shykes/hello@main" | (.dependencies[] | select(.name == "hello") | .pin) = "main"'\'' > dagger.tmp && mv dagger.tmp dagger.json'`})
 

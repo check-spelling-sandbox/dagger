@@ -75,14 +75,14 @@ func NewCustomLLB(ctx context.Context, op CustomOp, inputs []llb.State, opts ...
 		ClientMetadata: *clientMetadata,
 	}
 
-	// generate a uniqued digest of the op to use in the buildkit id (this
+	// generate a unique digest of the op to use in the buildkit id (this
 	// prevents all our ops merging together in the solver)
 	id, err := opWrapped.Digest()
 	if err != nil {
 		return llb.State{}, err
 	}
 
-	// pre-populate a reasonable underlying representation that has some inputs
+	// prepopulate a reasonable underlying representation that has some inputs
 	a := llb.Rm("/" + id.Encoded())
 	for _, input := range inputs {
 		a = a.Copy(input, "/", "/")

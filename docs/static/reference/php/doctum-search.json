@@ -2169,7 +2169,7 @@
 			"t": "M",
 			"n": "Dagger\\Container::withAnnotation",
 			"p": "Dagger/Container.html#method_withAnnotation",
-			"d": "<p>Retrieves this container plus the given OCI anotation.</p>"
+			"d": "<p>Retrieves this container plus the given OCI annotation.</p>"
 		},
 		{
 			"t": "M",
@@ -2361,7 +2361,7 @@
 			"t": "M",
 			"n": "Dagger\\Container::withoutFiles",
 			"p": "Dagger/Container.html#method_withoutFiles",
-			"d": "<p>Return a new container spanshot with specified files removed</p>"
+			"d": "<p>Return a new container snapshot with specified files removed</p>"
 		},
 		{
 			"t": "M",
@@ -2493,7 +2493,7 @@
 			"t": "M",
 			"n": "Dagger\\Directory::dockerBuild",
 			"p": "Dagger/Directory.html#method_dockerBuild",
-			"d": "<p>Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise use the native Container type directly, it is feature-complete and supports all Dockerfile features.</p>"
+			"d": "<p>Use Dockerfile compatibility to build a container from this directory. Only use this function for Dockerfile compatibility. Otherwise, use the native Container type directly, it is feature-complete and supports all Dockerfile features.</p>"
 		},
 		{
 			"t": "M",
@@ -2529,7 +2529,7 @@
 			"t": "M",
 			"n": "Dagger\\Directory::glob",
 			"p": "Dagger/Directory.html#method_glob",
-			"d": "<p>Returns a list of files and directories that matche the given pattern.</p>"
+			"d": "<p>Returns a list of files and directories that match the given pattern.</p>"
 		},
 		{
 			"t": "M",

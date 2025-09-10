@@ -838,7 +838,7 @@ class Container(Type):
             If set, skip the automatic init process injected into containers
             by default.
             This should only be used if the user requires that their exec
-            process be the pid 1 process in the container. Otherwise it may
+            process be the pid 1 process in the container. Otherwise, it may
             result in unexpected behavior.
         """
         _args = [
@@ -933,7 +933,7 @@ class Container(Type):
             If set, skip the automatic init process injected into containers
             created by RUN statements.
             This should only be used if the user requires that their exec
-            processes be the pid 1 process in the container. Otherwise it may
+            processes be the pid 1 process in the container. Otherwise, it may
             result in unexpected behavior.
         """
         warnings.warn(
@@ -1712,7 +1712,7 @@ class Container(Type):
             If set, skip the automatic init process injected into containers
             by default.
             This should only be used if the user requires that their exec
-            process be the pid 1 process in the container. Otherwise it may
+            process be the pid 1 process in the container. Otherwise, it may
             result in unexpected behavior.
 
         Returns
@@ -1765,7 +1765,7 @@ class Container(Type):
         return await _ctx.execute(str)
 
     def with_annotation(self, name: str, value: str) -> Self:
-        """Retrieves this container plus the given OCI anotation.
+        """Retrieves this container plus the given OCI annotation.
 
         Parameters
         ----------
@@ -1987,7 +1987,7 @@ class Container(Type):
             Skip the automatic init process injected into containers by
             default.
             Only use this if you specifically need the command to be pid 1 in
-            the container. Otherwise it may result in unexpected behavior. If
+            the container. Otherwise, it may result in unexpected behavior. If
             you're not sure, you don't need this.
         """
         _args = [
@@ -2691,7 +2691,7 @@ class Container(Type):
         *,
         expand: bool | None = False,
     ) -> Self:
-        """Return a new container spanshot with specified files removed
+        """Return a new container snapshot with specified files removed
 
         Parameters
         ----------
@@ -3074,7 +3074,7 @@ class Directory(Type):
         no_init: bool | None = False,
     ) -> Container:
         """Use Dockerfile compatibility to build a container from this directory.
-        Only use this function for Dockerfile compatibility. Otherwise use the
+        Only use this function for Dockerfile compatibility. Otherwise, use the
         native Container type directly, it is feature-complete and supports
         all Dockerfile features.
 
@@ -3095,7 +3095,7 @@ class Directory(Type):
             If set, skip the automatic init process injected into containers
             created by RUN statements.
             This should only be used if the user requires that their exec
-            processes be the pid 1 process in the container. Otherwise it may
+            processes be the pid 1 process in the container. Otherwise, it may
             result in unexpected behavior.
         """
         _args = [
@@ -3257,7 +3257,7 @@ class Directory(Type):
         return Directory(_ctx)
 
     async def glob(self, pattern: str) -> list[str]:
-        """Returns a list of files and directories that matche the given pattern.
+        """Returns a list of files and directories that match the given pattern.
 
         Parameters
         ----------
@@ -3370,7 +3370,7 @@ class Directory(Type):
         skip_ignored:
             Honor .gitignore, .ignore, and .rgignore files.
         skip_hidden:
-            Skip hidden files (files starting with .).
+            Skip hidden files (files starting with `.`).
         files_only:
             Only return matching files, not lines and content
         limit:
@@ -3840,7 +3840,7 @@ class EngineCache(Type):
         Parameters
         ----------
         use_default_policy:
-            Use the engine-wide default pruning policy if true, otherwise
+            Use the engine-wide default pruning policy if true; otherwise,
             prune the whole cache of any releasable entries.
 
         Returns
@@ -5692,7 +5692,7 @@ class File(Type):
         skip_ignored:
             Honor .gitignore, .ignore, and .rgignore files.
         skip_hidden:
-            Skip hidden files (files starting with .).
+            Skip hidden files (files starting with `.`).
         files_only:
             Only return matching files, not lines and content
         limit:
@@ -7036,7 +7036,7 @@ class Host(Type):
 @typecheck
 class InputTypeDef(Type):
     """A graphql input type, which is essentially just a group of named
-    args. This is currently only used to represent pre-existing usage of
+    args. This is currently only used to represent preexisting usage of
     graphql input types in the core API. It is not used by user modules
     and shouldn't ever be as user module accept input objects via their id
     rather than graphql input types."""
@@ -9918,7 +9918,7 @@ class Client(Root):
             be considered equivalent in terms of cache lookups, even if they
             have different URIs or plaintext values.
             For example, two secrets with the same cache key provided as
-            secret env vars to other wise equivalent containers will result in
+            secret env vars to otherwise equivalent containers will result in
             the container withExecs hitting the cache for each other.
             If not set, the cache key for the secret will be derived from its
             plaintext value as looked up when the secret is constructed.
