@@ -10,9 +10,10 @@ name: daggerverse-preview
         paths:
             - .changes/v*.md
     workflow_dispatch: {}
-permissions:
-    contents: read
-    actions: read
+permissions: read-all
+    # contents: read
+    # actions: read
+    # id-token: write
 concurrency:
     group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
 jobs:
