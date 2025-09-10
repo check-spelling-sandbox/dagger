@@ -168,7 +168,7 @@ jobs:
                 cat $tmp/stdout.txt
                 exit $EXIT_CODE
               env:
-                COMMAND: dagger call --github-token=env:RELEASE_DAGGER_CI_TOKEN deploy-preview-with-dagger-main --target ${{ github.event.number }} --help
+                COMMAND: dagger call --github-token=env:RELEASE_DAGGER_CI_TOKEN deploy-preview-with-dagger-main --target ${{ github.event.number || 0 }} --help
                 DAGGER_CLOUD_TOKEN: dag_dagger_sBIv6DsjNerWvTqt2bSFeigBUqWxp9bhh3ONSSgeFnw
                 DAGGER_MODULE: modules/daggerverse
                 RELEASE_DAGGER_CI_TOKEN: ${{ secrets.RELEASE_DAGGER_CI_TOKEN || github.token }}
