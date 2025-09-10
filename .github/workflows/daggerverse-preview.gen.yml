@@ -10,7 +10,7 @@ name: daggerverse-preview
         paths:
             - .changes/v*.md
     workflow_dispatch: {}
-permissions: read-all
+permissions: write-all
     # contents: read
     # actions: read
     # id-token: write
